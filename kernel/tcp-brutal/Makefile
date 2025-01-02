@@ -17,14 +17,14 @@ PKG_MAINTAINER:=Haruue Icymoon <i@haruue.moe>
 
 include $(INCLUDE_DIR)/package.mk
 
-define KernelPackage/brutal
+define KernelPackage/tcp-brutal
 	SECTION:=kernel
 	SUBMENU:=Network Support
 	TITLE:=TCP Brutal Kernel module
 	FILES:=$(PKG_BUILD_DIR)/brutal.$(LINUX_KMOD_SUFFIX)
 endef
 
-define KernelPackage/brutal/description
+define KernelPackage/tcp-brutal/description
 	Hysteria's congestion control algorithm ported to kernel mode TCP
 endef
 
@@ -37,4 +37,4 @@ define Build/Compile
 	$(KERNEL_MAKE) M="$(PKG_BUILD_DIR)" modules
 endef
 
-$(eval $(call KernelPackage,brutal))
+$(eval $(call KernelPackage,tcp-brutal))
